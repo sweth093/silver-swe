@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 
+import Link from 'next/link';
+
 export default function Home() {
   const [query, setQuery] = useState('');
   const [chatReply, setChatReply] = useState(null);
@@ -43,6 +45,12 @@ export default function Home() {
       <div className={styles.container}>
         <h1 className="gradient-text">Search the Future</h1>
         <p className={styles.subtitle}>Enter your query to unlock premium insights via OpenRouter.</p>
+        
+        <div className={styles.authLinks}>
+          <Link href="/login" className={styles.authLink}>Login</Link>
+          <span className={styles.authDivider}>|</span>
+          <Link href="/signup" className={styles.authLink}>Sign Up</Link>
+        </div>
         
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className="input-container">
